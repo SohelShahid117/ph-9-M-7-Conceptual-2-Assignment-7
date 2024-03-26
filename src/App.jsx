@@ -35,9 +35,9 @@ function App() {
   console.log(cart)
 
   const handleDeleteItem = (id) =>{
-    console.log(id)
+    // console.log(id)
     const newCart = cart.filter((item)=>item.id !=id)
-    console.log(newCart)
+    // console.log(newCart)
     setCart(newCart)
   }
 
@@ -82,8 +82,8 @@ function App() {
         handleCart = {handleCart}
         ></SingleProduct>)
        }
-          
         </div>
+        
         {/* <SingleProduct></SingleProduct> */}
 
         <div className='carts-container'>
