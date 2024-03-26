@@ -1,8 +1,8 @@
 // import React from 'react';
 
-const SingleProduct = ({product,handleAddToCart}) => {
+const SingleProduct = ({product,handleCart}) => {
     // console.log(product)
-    // console.log(handleAddToCart)
+    // console.log(handleCart)
     const {category,description,id,image,price,title} = product
     // console.log(id)
     return (
@@ -15,7 +15,7 @@ const SingleProduct = ({product,handleAddToCart}) => {
           </div>
           <div className='card-footer'>
             <h1>{price} $</h1>
-            <button onClick={(product)=>handleAddToCart(product)} className='add-btn'>Add to Cart</button>
+            <button onClick={(p)=>handleCart(product)} className='add-btn'>Add to Cart</button>
           </div>
         </div>
     );

@@ -6,6 +6,8 @@ function App() {
   // const [count, setCount] = useState(0)
 
   const [products,setProducts] = useState([])
+
+  const [cart,setCart] = useState([]);
   
   useEffect(()=>{
     fetch('./public/fakeData.json')
@@ -14,8 +16,29 @@ function App() {
     .then((data)=>setProducts(data))
   },[])
 
-  const handleAddToCart = (p) =>{
+  const handleCart = (p) =>{
     console.log(p)
+
+    let isExist = cart.find((item)=>item.id == p.id);
+    console.log(isExist)
+
+    if(isExist){
+      alert('item already exist')
+    }
+    else{
+      alert("item t cart a add koro")
+      setCart([...cart,p])
+    }
+  
+  }
+
+  console.log(cart)
+
+  const handleDeleteItem = (id) =>{
+    console.log(id)
+    const newCart = cart.filter((item)=>item.id !=id)
+    console.log(newCart)
+    setCart(newCart)
   }
 
 
@@ -51,10 +74,12 @@ function App() {
           </div>
         */}
         {/* <SingleProduct></SingleProduct> */}
+
        {
-        products.map((pData)=><SingleProduct 
+        products.map((pData)=><SingleProduct
+        key={pData.id}
         product={pData}
-        handleAddToCart = {handleAddToCart}
+        handleCart = {handleCart}
         ></SingleProduct>)
        }
           
@@ -67,6 +92,18 @@ function App() {
             <h4>Name</h4>
             <h4>Price</h4>
           </div>
+          <div>
+            {
+              cart.map((singleItem,index)=>(
+                <div className='cart-info'>
+                  <p>{index+1}</p>
+                  <h4>{singleItem.title.slice(0,15)}</h4>
+                  <h4>{singleItem.price} $</h4>
+                  <button onClick={()=>handleDeleteItem(singleItem.id)}>Delete</button>
+                </div>
+              ))
+            }
+          </div>
         </div>
       </div>
     
@@ -76,3 +113,6 @@ function App() {
 }
 
 export default App
+
+
+//43 min
