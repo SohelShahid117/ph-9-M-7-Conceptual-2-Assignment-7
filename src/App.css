@@ -1,4 +1,4 @@
-#root {
+/* #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -39,4 +39,31 @@
 
 .read-the-docs {
   color: #888;
+} */
+.main-container{
+  display: flex;
+  justify-content: space-around;
+}
+.carts-container{
+  width: 350px;
+  box-shadow: 4px 4px 8px gray;
+}
+
+.card{
+  width: 300px;
+  text-align: center;
+  border: 1px solid gray;
+}
+.card img{
+  width: 200px;
+}
+
+.card-footer{
+  display: flex;
+  justify-content: space-around;
+}
+
+.cart-title{
+  display: flex;
+  justify-content: space-around;
 }
